@@ -187,7 +187,7 @@ public class SinglyLinkedList {
                     copyList.add(tempNode);
                    currentNode = currentNode.getNext();
                 }
-               // currentNode.setNext(tempNode);
+                copyList.add(currentNode.getData());
             }
                 return copyList;
      }
