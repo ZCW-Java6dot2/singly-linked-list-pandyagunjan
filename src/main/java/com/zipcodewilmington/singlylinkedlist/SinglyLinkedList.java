@@ -1,6 +1,7 @@
 package com.zipcodewilmington.singlylinkedlist;
 
 import javax.swing.*;
+import java.util.LinkedList;
 
 /**
  * Created by leon on 1/10/18.
@@ -8,12 +9,23 @@ import javax.swing.*;
 public class SinglyLinkedList {
 
     private static int counter;
- // Inner class Node with getter and setter for the data and next
-    class Node {
-     Object data;
-     Node next;
 
-     public Object getData() {
+    // Inner class Node with getter and setter for the data and next
+    class Node {
+        Object data;
+        Node next;
+
+        public Node(Object dataValue) {
+            next = null;
+            data = dataValue;
+        }
+
+        public Node(Object dataValue, Node nextValue) {
+            next = nextValue;
+            data = dataValue;
+        }
+
+        public Object getData() {
             return data;
         }
 
@@ -30,16 +42,7 @@ public class SinglyLinkedList {
         }
 
 
-        public Node(Object dataValue) {
-            next = null;
-            data = dataValue;
-        }
-         public Node(Object dataValue,Node nextValue) {
-            next = nextValue;
-            data = dataValue;
-        }
-
- }
+    }
 
     private Node head;
 
@@ -48,34 +51,7 @@ public class SinglyLinkedList {
 
     }
 
-    // appends the specified element to the end of this list.
-    public void add(Object data) {
-
-        // Initialize Node only in case of 1st element , hence checks with null
-        if (head == null) {
-            head = new Node(data);
-        }
-      //save new node with data in tempNode to append
-        Node TempNode = new Node(data);
-        Node currentNode = head;
-
-        // Let's check for NPE before iterate over currentNode
-        if (currentNode != null) {
-
-            // starting at the head node, crawl to the end of the list and then add element after last node
-            while (currentNode.getNext() != null) {
-                currentNode = currentNode.getNext();
-            }
-
-            // the last node's "next" reference set to our new node
-            currentNode.setNext(TempNode);
-        }
-
-        // increment the number of elements variable
-        incrementCounter();
-    }
-
-   //counter handling
+    //counter handling
     private static int getCounter() {
         return counter;
     }
@@ -88,99 +64,141 @@ public class SinglyLinkedList {
         counter--;
     }
 
-    // inserts the specified element at the specified position in this list
-    public void add(Object data, int index) {
-        Node TempNode = new Node(data);
-        Node currentNode = head;
-
-        // Let's check for NPE before iterate over singlyLinkedCurrent
-        if (currentNode != null) {
-            // loop to the requested index or the last element in the list, whichever comes first
-            for (int i = 0; i < index && currentNode.getNext() != null; i++) {
-                currentNode = currentNode.getNext();
-            }
+    public void add(Object data) {
+        // Initialize Node only incase of 1st element
+        if (head == null) {
+            head = new Node(data);
         }
 
-        // set the new node's next-node reference to current node's next-node reference
-        TempNode.setNext(currentNode.getNext());
+        Node temp = new Node(data);
+        Node current = head;
 
-        // now set current node's next-node reference to the new node
-        currentNode.setNext(TempNode);
+        // Let's check for Null before iterate over Current
+        if (current != null) {
+
+            // starting at the head node, crawl to the end of the list and then add element after last node
+            while (current.getNext() != null) {
+                current = current.getNext();
+            }
+
+            // the last node's "next" reference set to our new node
+            current.setNext(temp);
+        }
 
         // increment the number of elements variable
         incrementCounter();
     }
 
+    public void add(Object data, int index) {
+        //if no node in linkedlist , create and make new as head
+        if (head == null) {
+            head = new Node(data);
+        }
+        Node tempNode = new Node(data);
+        Node currentNode = head;
+
+        //if first node present , loop through the list will getNext== null and i < index
+        if (currentNode != null) {
+            for (int i = 0; i < index && currentNode.getNext() != null; i++) {
+
+                currentNode = currentNode.getNext();
+            }
+            //set the node's next node reference to current node's next ref.
+            tempNode.setNext(currentNode.getNext());
+            //set current node's next to new node.
+            currentNode.setNext(tempNode);
+
+        }
+        //increment counter , which will help us to get size
+        incrementCounter();
+    }
+
+
     public Object get(int index)
     // returns the element at the specified position in this list.
     {
-        // index must be 1 or higher
-        if (index < 0)
+        if (head == null) {
             return null;
-        Node currentNode = null;
-        if (head != null) {
-            currentNode = head.getNext();
-            for (int i = 0; i < index; i++) {
-                if (currentNode.getNext() == null)
-                    return null;
-
-                currentNode = currentNode.getNext();
-            }
-            return currentNode.getData();
         }
-        return currentNode;
+        Node currentNode = head;
+        if (head != null) {
+            currentNode = head;
+            for (int i = 0; i <= index; i++) {
+                if (currentNode.getNext() != null) {
+                    currentNode = currentNode.getNext();
+                }
+
+            }
+            Object obj = currentNode.getData();
+            return obj;
+        }
+        return null;
+    }
+
+
+    public int size() {
+        return getCounter();
+    }
+
+    public void remove(int index) {
+        Node currentNode;
+        if (head != null) {
+            currentNode = head;
+            for (int i = 0; i <= index; i++) {
+                if (currentNode.getNext() != null) {
+                    currentNode = currentNode.getNext();
+                }
+
+            }
+            currentNode.setNext(currentNode.getNext().getNext());
+            // return obj;
+        }
+        decrementCounter();
+
 
     }
 
-    // removes the element at the specified position in this list.
-    public boolean remove(int index) {
-
-        // if the index is out of range, exit
-        if (index < 1 || index > size())
-            return false;
-
-        Node currentNode = head;
+    public Boolean contains(Object o) {
+        Node currentNode;
         if (head != null) {
-            for (int i = 0; i < index; i++) {
-                if (currentNode.getNext() == null)
-                    return false;
+            currentNode = head;
+            for (int i = 0; i <= size() && currentNode.getNext() != null; i++) {
+                if (currentNode.getData().equals(o)) {
 
+                    return true;
+                }
                 currentNode = currentNode.getNext();
             }
-            currentNode.setNext(currentNode.getNext().getNext());
-
-            // decrement the number of elements variable
-            decrementCounter();
-            return true;
 
         }
         return false;
     }
 
-    // returns the number of elements in this list.
-    public int size() {
-        return getCounter();
-    }
-
-public Boolean contains(Object o)
-// returns the element at the specified position in this list.
-{
-    Node currentNode = head;
-    for (int i = 0; i < getCounter(); i++) {
-
-        if (currentNode.getNext() != null)
-            if(currentNode.getNext().getData().equals(o))
-            {
-                return true;
+    public SinglyLinkedList copy() {
+        SinglyLinkedList copyList = new SinglyLinkedList();
+        Object tempNode = null;
+        Node currentNode =head.getNext();
+      //  copyList.head =  head.getNext();
+        //if first node present , loop through the list will getNext== null , and then setNext to the tempNode created with new data
+            if (currentNode != null) {
+                //currentNode=currentNode.getNext();
+                while (currentNode.getNext() != null) {
+                    tempNode=currentNode.getData();
+                    copyList.add(tempNode);
+                   currentNode = currentNode.getNext();
+                }
+               // currentNode.setNext(tempNode);
             }
-        else
-            currentNode=currentNode.getNext();
+                return copyList;
+     }
 
-    }
-    return false;
-    }
+
+        public void clear()
+        {
+            head = null;
+            counter = 0;
+        }
+
 
 }
-
-
 
