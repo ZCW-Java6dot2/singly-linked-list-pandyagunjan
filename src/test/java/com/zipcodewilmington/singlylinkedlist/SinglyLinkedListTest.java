@@ -1,6 +1,7 @@
 package com.zipcodewilmington.singlylinkedlist;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,109 +9,119 @@ import java.io.IOException;
 
 
 public class SinglyLinkedListTest {
+    SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+    String node1 ;
+    String node2 ;
+    String node3;
+    @Before
+    public void startup() {
+        node1 = "Node1";
+        node2 = "Node2";
+        node3 = "Node3";
+    }
 
     @Test
     public void addTest() {
         //Given
-        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
-        String expected = "Node1";
         //When
-        singlyLinkedList.add(expected);
+        singlyLinkedList.add(node1);
+        singlyLinkedList.add(node2);
+        singlyLinkedList.add(node3);
+
         //Then
-        Assert.assertEquals(expected,singlyLinkedList.get(0));
+        Assert.assertEquals(node1,singlyLinkedList.get(0));
+        Assert.assertEquals(node2,singlyLinkedList.get(1));
+        Assert.assertEquals(node3,singlyLinkedList.get(2));
     }
 
     @Test
     public void addAtIndexTest() {
         //Given
-        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
-        String node1 = "Node1";
-        String expected = "Node2";
         singlyLinkedList.add(node1);
         //When
-        singlyLinkedList.add(expected,0);
+        singlyLinkedList.add(node2,0);
         //Then
         Object data = singlyLinkedList.get(0);
-        Assert.assertEquals(expected,singlyLinkedList.get(0));
+        Assert.assertEquals(node2,singlyLinkedList.get(0));
     }
 
     @Test
     public void getTest() {
         //Given
-        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
-        String node1 = "Node1";
-        String expected = "Node2";
         singlyLinkedList.add(node1);
         //When
-        singlyLinkedList.add(expected,0);
+        singlyLinkedList.add(node2,0);
         //Then
-        Assert.assertEquals(expected,singlyLinkedList.get(0));
+        Assert.assertEquals(node2,singlyLinkedList.get(0));
     }
     @Test
     public void getTestNot0() {
         //Given
-        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
-        String expected = "Node1";
-        String node2 = "Node2";
-        singlyLinkedList.add(node2);
         //When
-        singlyLinkedList.add(expected,1);
+        singlyLinkedList.add(node2);
+        singlyLinkedList.add(node1,1);
         //Then
-        Assert.assertEquals(expected,singlyLinkedList.get(1));
+        Assert.assertEquals(node1,singlyLinkedList.get(1));
     }
-//    @Test
-//    public void removeTest() {
-//        //Given
-//        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
-//        String node1 = "Node1";
-//        String node2 = "Node2";
-//        String node3 = "Node3";
-//        singlyLinkedList.add(node1);
-//        singlyLinkedList.add(node2);
-//        singlyLinkedList.add(node3);
-//
-//        //When
-//        singlyLinkedList.remove(1);
-//        //Then
-//        Assert.assertEquals(node3,singlyLinkedList.get(1));
-//    }
-//    @Test
-//    public void containsTest() {
-//        //Given
-//        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
-//        String node1 = "Node1";
-//        String node2 = "Node2";
-//        String node3 = "Node3";
-//        String node4 = "Node4";
-//        singlyLinkedList.add(node1);
-//        singlyLinkedList.add(node2);
-//        singlyLinkedList.add(node3);
-//
-//        //When
-//        Boolean actual = singlyLinkedList.contains(node2);
-//        Boolean actual1 = singlyLinkedList.contains(node4);
-//        //Then
-//        Assert.assertEquals(true,actual);
-//        Assert.assertEquals(false,actual1);
-//    }
-//
-//    @Test
-//    public void sizeTest() {
-//        //Given
-//        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
-//        String node1 = "Node1";
-//        String node2 = "Node2";
-//        String node3 = "Node3";
-//        singlyLinkedList.add(node1);
-//        singlyLinkedList.add(node2);
-//        singlyLinkedList.add(node3);
-//
-//        //When
-//        int actual = singlyLinkedList.size();
-//
-//        //Then
-//        Assert.assertEquals(3,actual);
-//
-//    }
+    @Test
+    public void removeTest() {
+        //Given
 
+        singlyLinkedList.add(node1);
+        singlyLinkedList.add(node2);
+        singlyLinkedList.add(node3);
+        //When
+        singlyLinkedList.remove(1);
+        //Then
+        Assert.assertEquals(node2,singlyLinkedList.get(1));
+//        Assert.assertEquals(2,singlyLinkedList.size());
+    }
+    @Test
+    public void containsTest() {
+        //Given
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        String node1 = "Node1";
+        String node2 = "Node2";
+        String node3 = "Node3";
+        String node4 = "Node4";
+        singlyLinkedList.add(node1);
+        singlyLinkedList.add(node2);
+        singlyLinkedList.add(node3);
+
+        //When
+        Boolean actual = singlyLinkedList.contains(node2);
+        Boolean actual1 = singlyLinkedList.contains(node4);
+        //Then
+        Assert.assertEquals(true,actual);
+        Assert.assertEquals(false,actual1);
+    }
+
+@Test
+public void sizeTest() {
+    //When
+    singlyLinkedList.clear();
+    singlyLinkedList.add(node1);
+    singlyLinkedList.add(node2);
+    singlyLinkedList.add(node3);
+
+    int actual = singlyLinkedList.size();
+    //Then
+    Assert.assertEquals(3,actual);
+
+}
+    @Test
+    public void copyTest() {
+        //When
+        singlyLinkedList.clear();
+        singlyLinkedList.add(node1);
+        singlyLinkedList.add(node2);
+        singlyLinkedList.add(node3);
+
+        SinglyLinkedList actual =  singlyLinkedList.copy();
+        //Then
+        Assert.assertEquals(singlyLinkedList.get(0), actual.get(0));
+        Assert.assertEquals(singlyLinkedList.get(1), actual.get(1));
+        Assert.assertEquals(singlyLinkedList.get(2), actual.get(2));
+
+    }
 }
