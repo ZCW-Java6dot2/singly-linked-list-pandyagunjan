@@ -65,7 +65,7 @@ public class SinglyLinkedList {
     }
 
     public void add(Object data) {
-        // Initialize Node only incase of 1st element
+        // Initialize Node only when first node
         if (head == null) {
             head = new Node(data);
         }
@@ -73,15 +73,15 @@ public class SinglyLinkedList {
         Node temp = new Node(data);
         Node current = head;
 
-        // Let's check for Null before iterate over Current
+
         if (current != null) {
 
-            // starting at the head node, go to the end of the list and then add element after last node
+          //Browse through elements to reach the end
             while (current.getNext() != null) {
                 current = current.getNext();
             }
 
-            // the last node's "next" reference set to our new node
+            // Finally add the last node
             current.setNext(temp);
         }
 
@@ -151,7 +151,7 @@ public class SinglyLinkedList {
 
             }
             currentNode.setNext(currentNode.getNext().getNext());
-            // return obj;
+
         }
         decrementCounter();
 
