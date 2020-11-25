@@ -23,7 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f0c6f35-1ac5-49ea-b41e-20445c07c5c6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zipcodewilmington/singlylinkedlist/SinglyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zipcodewilmington/singlylinkedlist/SinglyLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/zipcodewilmington/singlylinkedlist/SinglyLinkedListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zipcodewilmington/singlylinkedlist/SinglyLinkedListTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +70,7 @@
       <recent name="junit.framework.TestCase" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SinglyLinkedListTest.findTest">
+  <component name="RunManager" selected="JUnit.SinglyLinkedListTest.sliceTest">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -190,7 +192,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SinglyLinkedListTest.sizeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SinglyLinkedListTest.sliceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="singlylinkedlist" />
       <extension name="coverage">
         <pattern>
@@ -200,7 +202,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.zipcodewilmington.singlylinkedlist" />
       <option name="MAIN_CLASS_NAME" value="com.zipcodewilmington.singlylinkedlist.SinglyLinkedListTest" />
-      <option name="METHOD_NAME" value="sizeTest" />
+      <option name="METHOD_NAME" value="sliceTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
@@ -268,11 +270,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SinglyLinkedListTest.sliceTest" />
         <item itemvalue="JUnit.SinglyLinkedListTest.findTest" />
         <item itemvalue="JUnit.SinglyLinkedListTest" />
         <item itemvalue="JUnit.SinglyLinkedListTest.copyTest" />
         <item itemvalue="JUnit.SinglyLinkedListTest.addTest" />
-        <item itemvalue="JUnit.SinglyLinkedListTest.sizeTest" />
       </list>
     </recent_temporary>
   </component>
@@ -299,10 +301,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="1380" y="-62" width="1720" height="880" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1606254401457">
+    <state x="1380" y="-62" width="1720" height="880" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1606263897848">
       <screen x="1280" y="-162" width="1920" height="1080" />
     </state>
-    <state x="1380" y="-62" width="1720" height="880" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606254401457" />
+    <state x="1380" y="-62" width="1720" height="880" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606263897848" />
     <state x="1380" y="-62" width="1720" height="880" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.23.1280.720/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606241163668" />
     <state x="2051" y="71" key="#com.intellij.ide.util.MemberChooser" timestamp="1606088319223">
       <screen x="1280" y="-139" width="1920" height="1057" />
@@ -312,52 +314,52 @@
       <screen x="1280" y="-162" width="1920" height="1080" />
     </state>
     <state x="1978" y="132" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606259070355" />
-    <state width="1878" height="348" key="GridCell.Tab.0.bottom" timestamp="1606262584973">
+    <state width="1878" height="505" key="GridCell.Tab.0.bottom" timestamp="1606302574699">
       <screen x="1280" y="-162" width="1920" height="1080" />
     </state>
-    <state width="1878" height="348" key="GridCell.Tab.0.bottom/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606262584973" />
+    <state width="1878" height="505" key="GridCell.Tab.0.bottom/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606302574699" />
     <state width="1878" height="569" key="GridCell.Tab.0.bottom/0.23.1280.720/1280.-139.1920.1057@1280.-139.1920.1057" timestamp="1606259715700" />
     <state width="1845" height="296" key="GridCell.Tab.0.bottom/0.23.1280.724/1280.-139.1920.1057@1280.-139.1920.1057" timestamp="1606096747223" />
-    <state width="1878" height="348" key="GridCell.Tab.0.center" timestamp="1606262584972">
+    <state width="1878" height="505" key="GridCell.Tab.0.center" timestamp="1606302574695">
       <screen x="1280" y="-162" width="1920" height="1080" />
     </state>
-    <state width="1878" height="348" key="GridCell.Tab.0.center/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606262584972" />
+    <state width="1878" height="505" key="GridCell.Tab.0.center/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606302574695" />
     <state width="1878" height="569" key="GridCell.Tab.0.center/0.23.1280.720/1280.-139.1920.1057@1280.-139.1920.1057" timestamp="1606259715695" />
     <state width="1845" height="296" key="GridCell.Tab.0.center/0.23.1280.724/1280.-139.1920.1057@1280.-139.1920.1057" timestamp="1606096747220" />
-    <state width="1878" height="348" key="GridCell.Tab.0.left" timestamp="1606262584971">
+    <state width="1878" height="505" key="GridCell.Tab.0.left" timestamp="1606302574693">
       <screen x="1280" y="-162" width="1920" height="1080" />
     </state>
-    <state width="1878" height="348" key="GridCell.Tab.0.left/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606262584971" />
+    <state width="1878" height="505" key="GridCell.Tab.0.left/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606302574693" />
     <state width="1878" height="569" key="GridCell.Tab.0.left/0.23.1280.720/1280.-139.1920.1057@1280.-139.1920.1057" timestamp="1606259715693" />
     <state width="1845" height="296" key="GridCell.Tab.0.left/0.23.1280.724/1280.-139.1920.1057@1280.-139.1920.1057" timestamp="1606096747219" />
-    <state width="1878" height="348" key="GridCell.Tab.0.right" timestamp="1606262584973">
+    <state width="1878" height="505" key="GridCell.Tab.0.right" timestamp="1606302574697">
       <screen x="1280" y="-162" width="1920" height="1080" />
     </state>
-    <state width="1878" height="348" key="GridCell.Tab.0.right/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606262584973" />
+    <state width="1878" height="505" key="GridCell.Tab.0.right/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606302574697" />
     <state width="1878" height="569" key="GridCell.Tab.0.right/0.23.1280.720/1280.-139.1920.1057@1280.-139.1920.1057" timestamp="1606259715698" />
     <state width="1845" height="296" key="GridCell.Tab.0.right/0.23.1280.724/1280.-139.1920.1057@1280.-139.1920.1057" timestamp="1606096747222" />
-    <state width="1878" height="348" key="GridCell.Tab.1.bottom" timestamp="1606262584983">
+    <state width="1878" height="505" key="GridCell.Tab.1.bottom" timestamp="1606302575294">
       <screen x="1280" y="-162" width="1920" height="1080" />
     </state>
-    <state width="1878" height="348" key="GridCell.Tab.1.bottom/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606262584983" />
+    <state width="1878" height="505" key="GridCell.Tab.1.bottom/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606302575294" />
     <state width="1878" height="569" key="GridCell.Tab.1.bottom/0.23.1280.720/1280.-139.1920.1057@1280.-139.1920.1057" timestamp="1606259854044" />
     <state width="1845" height="432" key="GridCell.Tab.1.bottom/0.23.1280.724/1280.-139.1920.1057@1280.-139.1920.1057" timestamp="1606096488967" />
-    <state width="1878" height="348" key="GridCell.Tab.1.center" timestamp="1606262584978">
+    <state width="1878" height="505" key="GridCell.Tab.1.center" timestamp="1606302575289">
       <screen x="1280" y="-162" width="1920" height="1080" />
     </state>
-    <state width="1878" height="348" key="GridCell.Tab.1.center/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606262584978" />
+    <state width="1878" height="505" key="GridCell.Tab.1.center/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606302575289" />
     <state width="1878" height="569" key="GridCell.Tab.1.center/0.23.1280.720/1280.-139.1920.1057@1280.-139.1920.1057" timestamp="1606259854042" />
     <state width="1845" height="432" key="GridCell.Tab.1.center/0.23.1280.724/1280.-139.1920.1057@1280.-139.1920.1057" timestamp="1606096488961" />
-    <state width="1878" height="348" key="GridCell.Tab.1.left" timestamp="1606262584974">
+    <state width="1878" height="505" key="GridCell.Tab.1.left" timestamp="1606302575287">
       <screen x="1280" y="-162" width="1920" height="1080" />
     </state>
-    <state width="1878" height="348" key="GridCell.Tab.1.left/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606262584974" />
+    <state width="1878" height="505" key="GridCell.Tab.1.left/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606302575287" />
     <state width="1878" height="569" key="GridCell.Tab.1.left/0.23.1280.720/1280.-139.1920.1057@1280.-139.1920.1057" timestamp="1606259854038" />
     <state width="1845" height="432" key="GridCell.Tab.1.left/0.23.1280.724/1280.-139.1920.1057@1280.-139.1920.1057" timestamp="1606096488959" />
-    <state width="1878" height="348" key="GridCell.Tab.1.right" timestamp="1606262584980">
+    <state width="1878" height="505" key="GridCell.Tab.1.right" timestamp="1606302575291">
       <screen x="1280" y="-162" width="1920" height="1080" />
     </state>
-    <state width="1878" height="348" key="GridCell.Tab.1.right/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606262584980" />
+    <state width="1878" height="505" key="GridCell.Tab.1.right/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606302575291" />
     <state width="1878" height="569" key="GridCell.Tab.1.right/0.23.1280.720/1280.-139.1920.1057@1280.-139.1920.1057" timestamp="1606259854043" />
     <state width="1845" height="432" key="GridCell.Tab.1.right/0.23.1280.724/1280.-139.1920.1057@1280.-139.1920.1057" timestamp="1606096488964" />
     <state x="1776" y="42" key="Maven.ArtifactSearchDialog" timestamp="1606091240587">
@@ -391,6 +393,29 @@
           <url>file://$PROJECT_DIR$/src/test/java/com/zipcodewilmington/singlylinkedlist/SinglyLinkedListTest.java</url>
           <line>139</line>
           <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/zipcodewilmington/singlylinkedlist/SinglyLinkedListTest.java</url>
+          <line>154</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zipcodewilmington/singlylinkedlist/SinglyLinkedList.java</url>
+          <line>208</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zipcodewilmington/singlylinkedlist/SinglyLinkedList.java</url>
+          <line>222</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zipcodewilmington/singlylinkedlist/SinglyLinkedList.java</url>
+          <line>207</line>
+          <properties class="com.zipcodewilmington.singlylinkedlist.SinglyLinkedList" method="slice">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

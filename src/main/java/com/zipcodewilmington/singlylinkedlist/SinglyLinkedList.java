@@ -205,6 +205,27 @@ public class SinglyLinkedList {
                 return copyList;
      }
 
+    public SinglyLinkedList slice(int start ,int end) {
+        SinglyLinkedList sliceList = new SinglyLinkedList();
+        Object tempNode = null;
+        Node currentNode =head.getNext();
+
+        if (currentNode != null) {
+             for(int i=1 ;i <=end  ;i++) {
+                 if(i >= start) {
+                     tempNode = currentNode.getData();
+                     sliceList.add(tempNode);
+                     currentNode = currentNode.getNext();
+                 }
+                 else
+                 {
+                     currentNode = currentNode.getNext();
+                 }
+            }
+
+        }
+        return sliceList;
+    }
 
         public void clear()
         {
