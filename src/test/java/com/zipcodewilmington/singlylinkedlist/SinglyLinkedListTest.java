@@ -143,6 +143,23 @@ public void sizeTest() {
         Assert.assertEquals(2,actual);
       //  Assert.assertEquals(false,actual1);
     }
+    @Test
+    public void sliceTest() {
+        //When
+        singlyLinkedList.clear();
+        singlyLinkedList.add(node1);
+        singlyLinkedList.add(node2);
+        singlyLinkedList.add(node3);
+        String node4 = "Node4";
+        singlyLinkedList.add(node4);
+        String node5 = "Node5";
+        singlyLinkedList.add(node5);
+        SinglyLinkedList actual =  singlyLinkedList.slice(2,4);
+        //Then
+        Assert.assertEquals(singlyLinkedList.get(2), actual.get(0));
+        Assert.assertEquals(singlyLinkedList.get(3), actual.get(1));
 
+
+    }
 
 }
