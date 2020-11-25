@@ -211,7 +211,7 @@ public class SinglyLinkedList {
         Node currentNode =head.getNext();
 
         if (currentNode != null) {
-             for(int i=1 ;i <=end  ;i++) {
+             for(int i=0 ;i <end  ;i++) {
                  if(i >= start) {
                      tempNode = currentNode.getData();
                      sliceList.add(tempNode);

@@ -152,10 +152,12 @@ public void sizeTest() {
         singlyLinkedList.add(node3);
         String node4 = "Node4";
         singlyLinkedList.add(node4);
-        SinglyLinkedList actual =  singlyLinkedList.slice(2,3);
+        String node5 = "Node5";
+        singlyLinkedList.add(node5);
+        SinglyLinkedList actual =  singlyLinkedList.slice(2,4);
         //Then
-        Assert.assertEquals(singlyLinkedList.get(1), actual.get(0));
-        Assert.assertEquals(singlyLinkedList.get(2), actual.get(1));
+        Assert.assertEquals(singlyLinkedList.get(2), actual.get(0));
+        Assert.assertEquals(singlyLinkedList.get(3), actual.get(1));
 
 
     }
