@@ -76,7 +76,7 @@ public class SinglyLinkedList {
         // Let's check for Null before iterate over Current
         if (current != null) {
 
-            // starting at the head node, crawl to the end of the list and then add element after last node
+            // starting at the head node, go to the end of the list and then add element after last node
             while (current.getNext() != null) {
                 current = current.getNext();
             }
@@ -173,13 +173,26 @@ public class SinglyLinkedList {
         }
         return false;
     }
+    public int find(Object o) {
+        Node currentNode;
+        if (head != null) {
+            currentNode = head;
+            for (int i = 0; i <= size() && currentNode.getNext() != null; i++) {
+                if (currentNode.getData().equals(o)) {
 
+                    return i;
+                }
+                currentNode = currentNode.getNext();
+            }
+
+        }
+        return 0;
+    }
     public SinglyLinkedList copy() {
         SinglyLinkedList copyList = new SinglyLinkedList();
         Object tempNode = null;
         Node currentNode =head.getNext();
-      //  copyList.head =  head.getNext();
-        //if first node present , loop through the list will getNext== null , and then setNext to the tempNode created with new data
+
             if (currentNode != null) {
                 //currentNode=currentNode.getNext();
                 while (currentNode.getNext() != null) {

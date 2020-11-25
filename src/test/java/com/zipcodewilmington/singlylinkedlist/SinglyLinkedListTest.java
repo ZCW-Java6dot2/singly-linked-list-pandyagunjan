@@ -124,4 +124,25 @@ public void sizeTest() {
         Assert.assertEquals(singlyLinkedList.get(2), actual.get(2));
 
     }
+    @Test
+    public void findTest() {
+        //Given
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        String node1 = "Node1";
+        String node2 = "Node2";
+        String node3 = "Node3";
+        String node4 = "Node4";
+        singlyLinkedList.add(node1);
+        singlyLinkedList.add(node2);
+        singlyLinkedList.add(node3);
+
+        //When
+        int actual = singlyLinkedList.find(node2);
+    //    Boolean actual1 = singlyLinkedList.contains(node4);
+        //Then
+        Assert.assertEquals(2,actual);
+      //  Assert.assertEquals(false,actual1);
+    }
+
+
 }
