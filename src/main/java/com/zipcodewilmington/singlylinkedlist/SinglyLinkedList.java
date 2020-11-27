@@ -245,7 +245,7 @@ public class SinglyLinkedList implements Comparable {
              //   tempNode=currentNode;
                 currentNode = currentNode.getNext();
 
-              if(tempNode.compare(currentNode))
+          //    if(tempNode.compare(currentNode))
 
                 copyList.add(tempNode);
                 currentNode = currentNode.getNext();
