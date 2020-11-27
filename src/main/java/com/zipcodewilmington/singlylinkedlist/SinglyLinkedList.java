@@ -7,17 +7,21 @@ import java.util.LinkedList;
 /**
  * Created by leon on 1/10/18.
  */
-public class SinglyLinkedList implements Comparator {
+public class SinglyLinkedList implements Comparable {
 
     private static int counter;
 
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
 
 
     // Inner class Node with getter and setter for the data and next
     class Node {
         Object data;
         Node next;
-
+//test
         public Node(Object dataValue) {
             next = null;
             data = dataValue;
@@ -238,10 +242,10 @@ public class SinglyLinkedList implements Comparator {
         if (currentNode != null) {
             //currentNode=currentNode.getNext();
             while (currentNode.getNext() != null) {
-                tempNode=currentNode;
+             //   tempNode=currentNode;
                 currentNode = currentNode.getNext();
 
-            //  if(tempNode.compare(currentNode))
+              if(tempNode.compare(currentNode))
 
                 copyList.add(tempNode);
                 currentNode = currentNode.getNext();
@@ -253,19 +257,11 @@ public class SinglyLinkedList implements Comparator {
 
     }
 
-
         public void clear()
         {
             head = null;
             counter = 0;
         }
-
-
-    @Override
-    public int compare(Object o1, Object o2) {
-
-        return 0;
-    }
 
 }
 
