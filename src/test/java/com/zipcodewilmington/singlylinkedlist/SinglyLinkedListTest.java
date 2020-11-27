@@ -154,12 +154,33 @@ public void sizeTest() {
         singlyLinkedList.add(node4);
         String node5 = "Node5";
         singlyLinkedList.add(node5);
-        SinglyLinkedList actual =  singlyLinkedList.slice(2,4);
+        SinglyLinkedList actual = singlyLinkedList.slice(2, 4);
         //Then
         Assert.assertEquals(singlyLinkedList.get(2), actual.get(0));
         Assert.assertEquals(singlyLinkedList.get(3), actual.get(1));
-
-
     }
+//        @Test
+//        public void sortTest() {
+//            //When
+//
+//            String node4 = "Node4";
+//            singlyLinkedList.add(node4);
+//            String node5 = "Node5";
+//            singlyLinkedList.add(node5);
+//            singlyLinkedList.add(node1);
+//            singlyLinkedList.add(node3);
+//            singlyLinkedList.add(node2);
+//            SinglyLinkedList actual =  singlyLinkedList.sort();
+//            SinglyLinkedList expected=new SinglyLinkedList();;
+//            expected.add(node1);
+//            expected.add(node2);
+//            expected.add(node3);
+//            expected.add(node4);
+//            expected.add(node5);
+//            //Then
+//            Assert.assertEquals(singlyLinkedList.get(2), actual.get(0));
+//            Assert.assertEquals(singlyLinkedList.get(3), actual.get(1));
+
+   // }
 
 }

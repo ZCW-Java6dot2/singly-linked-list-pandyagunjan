@@ -1,14 +1,17 @@
 package com.zipcodewilmington.singlylinkedlist;
 
 import javax.swing.*;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 /**
  * Created by leon on 1/10/18.
  */
-public class SinglyLinkedList {
+public class SinglyLinkedList implements Comparator {
 
     private static int counter;
+
+
 
     // Inner class Node with getter and setter for the data and next
     class Node {
@@ -227,12 +230,42 @@ public class SinglyLinkedList {
         return sliceList;
     }
 
+    public SinglyLinkedList sort() {
+        SinglyLinkedList copyList = new SinglyLinkedList();
+        Object tempNode = null;
+        Node currentNode =head.getNext();
+
+        if (currentNode != null) {
+            //currentNode=currentNode.getNext();
+            while (currentNode.getNext() != null) {
+                tempNode=currentNode;
+                currentNode = currentNode.getNext();
+
+            //  if(tempNode.compare(currentNode))
+
+                copyList.add(tempNode);
+                currentNode = currentNode.getNext();
+            }
+            copyList.add(currentNode.getData());
+        }
+        return copyList;
+
+
+    }
+
+
         public void clear()
         {
             head = null;
             counter = 0;
         }
 
+
+    @Override
+    public int compare(Object o1, Object o2) {
+
+        return 0;
+    }
 
 }
 
