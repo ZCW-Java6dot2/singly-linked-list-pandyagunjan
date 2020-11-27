@@ -22,11 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f0c6f35-1ac5-49ea-b41e-20445c07c5c6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zipcodewilmington/singlylinkedlist/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zipcodewilmington/singlylinkedlist/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zipcodewilmington/singlylinkedlist/SinglyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zipcodewilmington/singlylinkedlist/SinglyLinkedList.java" afterDir="false" />
-    </list>
+    <list default="true" id="4f0c6f35-1ac5-49ea-b41e-20445c07c5c6" name="Default" comment="test" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -300,6 +296,10 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="1380" y="-62" width="1720" height="880" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1606263897848">
       <screen x="1280" y="-162" width="1920" height="1080" />
@@ -367,14 +367,14 @@
       <screen x="1280" y="-139" width="1920" height="1057" />
     </state>
     <state x="1776" y="42" key="Maven.ArtifactSearchDialog/0.23.1280.724/1280.-139.1920.1057@1280.-139.1920.1057" timestamp="1606091240587" />
-    <state x="1728" y="-41" key="SettingsEditor" timestamp="1606517403767">
+    <state x="1728" y="-41" key="SettingsEditor" timestamp="1606517658867">
       <screen x="1280" y="-162" width="1920" height="1080" />
     </state>
-    <state x="1728" y="-41" key="SettingsEditor/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606517403767" />
-    <state x="1840" y="118" key="Vcs.Push.Dialog.v2" timestamp="1606517512211">
+    <state x="1728" y="-41" key="SettingsEditor/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606517658867" />
+    <state x="1840" y="118" key="Vcs.Push.Dialog.v2" timestamp="1606517609765">
       <screen x="1280" y="-162" width="1920" height="1080" />
     </state>
-    <state x="1840" y="118" key="Vcs.Push.Dialog.v2/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606517512211" />
+    <state x="1840" y="118" key="Vcs.Push.Dialog.v2/0.0.1280.800/1280.-162.1920.1080@1280.-162.1920.1080" timestamp="1606517609765" />
     <state x="1970" y="135" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1606250642885">
       <screen x="1280" y="-162" width="1920" height="1080" />
     </state>
