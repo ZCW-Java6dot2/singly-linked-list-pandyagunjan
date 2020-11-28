@@ -1,42 +1,32 @@
 package com.zipcodewilmington.singlylinkedlist;
 
-import javax.swing.*;
-import java.util.Comparator;
-import java.util.LinkedList;
-
 /**
  * Created by leon on 1/10/18.
  */
-public class SinglyLinkedList implements Comparable {
+public class SinglyLinkedList<T> {
 
     private static int counter;
 
-    @Override
-    public int compareTo(Object o) {
-        return 0;
-    }
 
-
-    // Inner class Node with getter and setter for the data and next
-    class Node {
-        Object data;
+    // Inner class NodeOne with getter and setter for the data and next
+    class Node<T> implements Comparable {
+        T data;
         Node next;
-//test
-        public Node(Object dataValue) {
+        public Node(T dataValue) {
             next = null;
             data = dataValue;
         }
 
-        public Node(Object dataValue, Node nextValue) {
+        public Node(T dataValue, Node nextValue) {
             next = nextValue;
             data = dataValue;
         }
 
-        public Object getData() {
+        public T getData() {
             return data;
         }
 
-        public void setData(Object data) {
+        public void setData(T data) {
             this.data = data;
         }
 
@@ -48,7 +38,11 @@ public class SinglyLinkedList implements Comparable {
             this.next = next;
         }
 
+        @Override
+        public int compareTo(Object o) {
 
+            return 0;
+        }
     }
 
     private Node head;
@@ -71,8 +65,8 @@ public class SinglyLinkedList implements Comparable {
         counter--;
     }
 
-    public void add(Object data) {
-        // Initialize Node only when first node
+    public void add(T data) {
+        // Initialize NodeOne only when first node
         if (head == null) {
             head = new Node(data);
         }
@@ -96,7 +90,7 @@ public class SinglyLinkedList implements Comparable {
         incrementCounter();
     }
 
-    public void add(Object data, int index) {
+    public void add(T data, int index) {
         //if no node in linkedlist , create and make new as head
         if (head == null) {
             head = new Node(data);
@@ -121,7 +115,7 @@ public class SinglyLinkedList implements Comparable {
     }
 
 
-    public Object get(int index)
+    public T get(int index)
     // returns the element at the specified position in this list.
     {
         if (head == null) {
@@ -136,7 +130,7 @@ public class SinglyLinkedList implements Comparable {
                 }
 
             }
-            Object obj = currentNode.getData();
+            T obj = (T) currentNode.getData();
             return obj;
         }
         return null;
@@ -165,7 +159,7 @@ public class SinglyLinkedList implements Comparable {
 
     }
 
-    public Boolean contains(Object o) {
+    public Boolean contains(T o) {
         Node currentNode;
         if (head != null) {
             currentNode = head;
@@ -180,7 +174,7 @@ public class SinglyLinkedList implements Comparable {
         }
         return false;
     }
-    public int find(Object o) {
+    public int find(T o) {
         Node currentNode;
         if (head != null) {
             currentNode = head;
@@ -197,13 +191,13 @@ public class SinglyLinkedList implements Comparable {
     }
     public SinglyLinkedList copy() {
         SinglyLinkedList copyList = new SinglyLinkedList();
-        Object tempNode = null;
+        T tempNode = null;
         Node currentNode =head.getNext();
 
             if (currentNode != null) {
                 //currentNode=currentNode.getNext();
                 while (currentNode.getNext() != null) {
-                    tempNode=currentNode.getData();
+                    tempNode= (T) currentNode.getData();
                     copyList.add(tempNode);
                    currentNode = currentNode.getNext();
                 }
@@ -214,13 +208,13 @@ public class SinglyLinkedList implements Comparable {
 
     public SinglyLinkedList slice(int start ,int end) {
         SinglyLinkedList sliceList = new SinglyLinkedList();
-        Object tempNode = null;
+        T tempNode = null;
         Node currentNode =head.getNext();
 
         if (currentNode != null) {
              for(int i=0 ;i <end  ;i++) {
                  if(i >= start) {
-                     tempNode = currentNode.getData();
+                     tempNode = (T) currentNode.getData();
                      sliceList.add(tempNode);
                      currentNode = currentNode.getNext();
                  }
@@ -236,7 +230,7 @@ public class SinglyLinkedList implements Comparable {
 
     public SinglyLinkedList sort() {
         SinglyLinkedList copyList = new SinglyLinkedList();
-        Object tempNode = null;
+        T tempNode = null;
         Node currentNode =head.getNext();
 
         if (currentNode != null) {
@@ -245,7 +239,7 @@ public class SinglyLinkedList implements Comparable {
              //   tempNode=currentNode;
                 currentNode = currentNode.getNext();
 
-          //    if(tempNode.compare(currentNode))
+      //   if(tempNode.compareTo(currentNode))
 
                 copyList.add(tempNode);
                 currentNode = currentNode.getNext();
@@ -254,14 +248,11 @@ public class SinglyLinkedList implements Comparable {
         }
         return copyList;
 
-
     }
-
         public void clear()
         {
             head = null;
             counter = 0;
         }
-
 }
 
