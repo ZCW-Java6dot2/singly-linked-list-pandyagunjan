@@ -1,15 +1,17 @@
 package com.zipcodewilmington.singlylinkedlist;
 
+import java.util.Comparator;
+
 /**
  * Created by leon on 1/10/18.
  */
-public class SinglyLinkedList<T> {
+public class SinglyLinkedList<T extends Comparable<T>> {
 
     private static int counter;
 
 
     // Inner class NodeOne with getter and setter for the data and next
-    class Node<T> implements Comparable {
+    class Node<T extends Comparable<T>> implements Comparator<T> {
         T data;
         Node next;
         public Node(T dataValue) {
@@ -38,10 +40,10 @@ public class SinglyLinkedList<T> {
             this.next = next;
         }
 
-        @Override
-        public int compareTo(Object o) {
 
-            return 0;
+        @Override
+        public int compare(T o1, T o2) {
+          return  o1.compareTo(o2);
         }
     }
 
@@ -228,28 +230,51 @@ public class SinglyLinkedList<T> {
         return sliceList;
     }
 
-    public SinglyLinkedList sort() {
-        SinglyLinkedList copyList = new SinglyLinkedList();
-        T tempNode = null;
-        Node currentNode =head.getNext();
+    public void sort(SinglyLinkedList passedList) {
 
-        if (currentNode != null) {
-            //currentNode=currentNode.getNext();
-            while (currentNode.getNext() != null) {
-             //   tempNode=currentNode;
-                currentNode = currentNode.getNext();
-
-      //   if(tempNode.compareTo(currentNode))
-
-                copyList.add(tempNode);
-                currentNode = currentNode.getNext();
+        int currentSize = passedList.size();
+        Node tempNode = null;
+        int temp;
+        for (int i = 0; i < currentSize-1; i++) {
+            T currentAtI = get(i);
+            for (int j =i+1; j < currentSize; j++) {
+                T currentAtJ = get(j);
+                if (currentAtI.compareTo(currentAtJ) > 0) {
+                    swap(currentAtI, currentAtJ);
+                    currentAtI = currentAtJ;
+                }
             }
-            copyList.add(currentNode.getData());
         }
-        return copyList;
+    }
+
+    public void swap(T obj1, T obj2){
+        Node<T> tempNode = head;
+        Node<T> tempNodePrev = null;
+        Node<T> tempNodeNext = null;
+        Node<T> currentNode = null;
+        tempNodePrev=tempNode;
+        Boolean swapped=false;
+        while (tempNode != null && !swapped){
+            if (tempNode.getData().equals(obj1))
+            {
+             currentNode=tempNode;
+             tempNodeNext=tempNode.getNext();
+             tempNodePrev.setNext(tempNodeNext);
+             tempNodeNext.setNext(tempNode);
+             swapped=true;
+            }
+            else {
+                tempNodePrev=tempNode;
+                tempNode = tempNode.getNext();
+            }
+        }
 
     }
-        public void clear()
+
+
+
+
+    public void clear()
         {
             head = null;
             counter = 0;
