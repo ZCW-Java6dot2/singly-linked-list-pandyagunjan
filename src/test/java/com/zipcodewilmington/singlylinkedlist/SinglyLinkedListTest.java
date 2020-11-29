@@ -180,9 +180,11 @@ public void sizeTest() {
             expected.add(node4);
             expected.add(node5);
             //Then
+            Assert.assertEquals(singlyLinkedList.get(0), expected.get(0));
+            Assert.assertEquals(singlyLinkedList.get(1), expected.get(1));
             Assert.assertEquals(singlyLinkedList.get(2), expected.get(2));
             Assert.assertEquals(singlyLinkedList.get(3), expected.get(3));
-
+            Assert.assertEquals(singlyLinkedList.get(4), expected.get(4));
     }
 
 }

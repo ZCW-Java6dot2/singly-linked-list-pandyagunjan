@@ -251,16 +251,19 @@ public class SinglyLinkedList<T extends Comparable<T>> {
         Node<T> tempNode = head;
         Node<T> tempNodePrev = null;
         Node<T> tempNodeNext = null;
-        Node<T> currentNode = null;
+        Node<T> tempNodeNextNext = null;
+
         tempNodePrev=tempNode;
         Boolean swapped=false;
         while (tempNode != null && !swapped){
             if (tempNode.getData().equals(obj1))
             {
-             currentNode=tempNode;
-             tempNodeNext=tempNode.getNext();
-             tempNodePrev.setNext(tempNodeNext);
-             tempNodeNext.setNext(tempNode);
+             tempNodeNext=tempNode.getNext(); // Save the Next Node after current Node
+             tempNodeNextNext=tempNodeNext.getNext(); // save the Next , Next's node after current node.
+             tempNodePrev.setNext(tempNodeNext); //set the previous node tempNode's next
+             tempNodeNext.setNext(tempNode); // set to NodeNext to current Node
+             tempNode.setNext(tempNodeNextNext); // set current node to next /next
+
              swapped=true;
             }
             else {
