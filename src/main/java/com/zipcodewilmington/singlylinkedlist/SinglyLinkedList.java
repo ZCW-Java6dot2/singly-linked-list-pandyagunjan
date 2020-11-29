@@ -1,35 +1,34 @@
 package com.zipcodewilmington.singlylinkedlist;
 
-import javax.swing.*;
-import java.util.LinkedList;
+import java.util.Comparator;
 
 /**
  * Created by leon on 1/10/18.
  */
-public class SinglyLinkedList {
+public class SinglyLinkedList<T extends Comparable<T>> {
 
     private static int counter;
 
-    // Inner class Node with getter and setter for the data and next
-    class Node {
-        Object data;
-        Node next;
 
-        public Node(Object dataValue) {
+    // Inner class NodeOne with getter and setter for the data and next
+    class Node<T extends Comparable<T>> implements Comparator<T> {
+        T data;
+        Node next;
+        public Node(T dataValue) {
             next = null;
             data = dataValue;
         }
 
-        public Node(Object dataValue, Node nextValue) {
+        public Node(T dataValue, Node nextValue) {
             next = nextValue;
             data = dataValue;
         }
 
-        public Object getData() {
+        public T getData() {
             return data;
         }
 
-        public void setData(Object data) {
+        public void setData(T data) {
             this.data = data;
         }
 
@@ -42,6 +41,10 @@ public class SinglyLinkedList {
         }
 
 
+        @Override
+        public int compare(T o1, T o2) {
+          return  o1.compareTo(o2);
+        }
     }
 
     private Node head;
@@ -64,8 +67,8 @@ public class SinglyLinkedList {
         counter--;
     }
 
-    public void add(Object data) {
-        // Initialize Node only when first node
+    public void add(T data) {
+        // Initialize NodeOne only when first node
         if (head == null) {
             head = new Node(data);
         }
@@ -89,7 +92,7 @@ public class SinglyLinkedList {
         incrementCounter();
     }
 
-    public void add(Object data, int index) {
+    public void add(T data, int index) {
         //if no node in linkedlist , create and make new as head
         if (head == null) {
             head = new Node(data);
@@ -114,7 +117,7 @@ public class SinglyLinkedList {
     }
 
 
-    public Object get(int index)
+    public T get(int index)
     // returns the element at the specified position in this list.
     {
         if (head == null) {
@@ -129,7 +132,7 @@ public class SinglyLinkedList {
                 }
 
             }
-            Object obj = currentNode.getData();
+            T obj = (T) currentNode.getData();
             return obj;
         }
         return null;
@@ -158,7 +161,7 @@ public class SinglyLinkedList {
 
     }
 
-    public Boolean contains(Object o) {
+    public Boolean contains(T o) {
         Node currentNode;
         if (head != null) {
             currentNode = head;
@@ -173,7 +176,7 @@ public class SinglyLinkedList {
         }
         return false;
     }
-    public int find(Object o) {
+    public int find(T o) {
         Node currentNode;
         if (head != null) {
             currentNode = head;
@@ -190,13 +193,13 @@ public class SinglyLinkedList {
     }
     public SinglyLinkedList copy() {
         SinglyLinkedList copyList = new SinglyLinkedList();
-        Object tempNode = null;
+        T tempNode = null;
         Node currentNode =head.getNext();
 
             if (currentNode != null) {
                 //currentNode=currentNode.getNext();
                 while (currentNode.getNext() != null) {
-                    tempNode=currentNode.getData();
+                    tempNode= (T) currentNode.getData();
                     copyList.add(tempNode);
                    currentNode = currentNode.getNext();
                 }
@@ -207,13 +210,13 @@ public class SinglyLinkedList {
 
     public SinglyLinkedList slice(int start ,int end) {
         SinglyLinkedList sliceList = new SinglyLinkedList();
-        Object tempNode = null;
+        T tempNode = null;
         Node currentNode =head.getNext();
 
         if (currentNode != null) {
              for(int i=0 ;i <end  ;i++) {
                  if(i >= start) {
-                     tempNode = currentNode.getData();
+                     tempNode = (T) currentNode.getData();
                      sliceList.add(tempNode);
                      currentNode = currentNode.getNext();
                  }
@@ -227,12 +230,57 @@ public class SinglyLinkedList {
         return sliceList;
     }
 
-        public void clear()
+    public void sort(SinglyLinkedList passedList) {
+
+        int currentSize = passedList.size();
+        Node tempNode = null;
+        int temp;
+        for (int i = 0; i < currentSize-1; i++) {
+            T currentAtI = get(i);
+            for (int j =i+1; j < currentSize; j++) {
+                T currentAtJ = get(j);
+                if (currentAtI.compareTo(currentAtJ) > 0) {
+                    swap(currentAtI, currentAtJ);
+                    currentAtI = currentAtJ;
+                }
+            }
+        }
+    }
+
+    public void swap(T obj1, T obj2){
+        Node<T> tempNode = head;
+        Node<T> tempNodePrev = null;
+        Node<T> tempNodeNext = null;
+        Node<T> tempNodeNextNext = null;
+
+        tempNodePrev=tempNode;
+        Boolean swapped=false;
+        while (tempNode != null && !swapped){
+            if (tempNode.getData().equals(obj1))
+            {
+             tempNodeNext=tempNode.getNext(); // Save the Next Node after current Node
+             tempNodeNextNext=tempNodeNext.getNext(); // save the Next , Next's node after current node.
+             tempNodePrev.setNext(tempNodeNext); //set the previous node tempNode's next
+             tempNodeNext.setNext(tempNode); // set to NodeNext to current Node
+             tempNode.setNext(tempNodeNextNext); // set current node to next /next
+
+             swapped=true;
+            }
+            else {
+                tempNodePrev=tempNode;
+                tempNode = tempNode.getNext();
+            }
+        }
+
+    }
+
+
+
+
+    public void clear()
         {
             head = null;
             counter = 0;
         }
-
-
 }
 
